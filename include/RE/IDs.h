@@ -909,8 +909,8 @@ namespace RE::ID
 
 	namespace GameVM
 	{
-		inline constexpr REL::ID Singleton{ 0 };               // 878371
-		inline constexpr REL::ID BindEverythingToScript{ 0 };  // 171438
+		inline constexpr REL::ID Singleton{ 937585 };
+		inline constexpr REL::ID BindEverythingToScript{ 117899 };
 	}
 
 	namespace HideSubtitleEvent::Event
@@ -2389,8 +2389,8 @@ namespace RE::ID
 
 	namespace UIMessageQueue
 	{
-		inline constexpr REL::ID Singleton{ 0 };   // 878637
-		inline constexpr REL::ID AddMessage{ 0 };  // 187268
+		inline constexpr REL::ID Singleton{ 937897 };
+		inline constexpr REL::ID AddMessage{ 130659 };
 	}
 
 	namespace UnlockedTerminalElementEvent
