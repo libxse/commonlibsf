@@ -276,6 +276,7 @@ namespace RE::ID
 		{
 			inline constexpr REL::ID ctor{ 137778 };  // 196025
 			inline constexpr REL::ID dtor{ 0 };       // 196032 - inlined
+			inline constexpr REL::ID dtorUnkSub{ 137823 };
 			inline constexpr REL::ID GetHandle{ 0 };  // 196069 - inlined
 			inline constexpr REL::ID SetHandle{ 0 };  // 196079
 			inline constexpr REL::ID IncRef{ 0 };     // 37879
@@ -289,8 +290,8 @@ namespace RE::ID
 
 		namespace ObjectTypeInfo
 		{
-			inline constexpr REL::ID ctor{ 0 };                // 197047
-			inline constexpr REL::ID dtor{ 0 };                // 196202
+			inline constexpr REL::ID ctor{ 138400 };           // 197047
+			inline constexpr REL::ID dtor{ 137885 };           // 196202
 			inline constexpr REL::ID Clear{ 0 };               // 196218
 			inline constexpr REL::ID CopyFromLinkedData{ 0 };  // 196219
 			inline constexpr REL::ID GetProperty{ 0 };         // 196241

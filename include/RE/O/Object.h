@@ -14,17 +14,10 @@ namespace RE::BSScript
 	class Object
 	{
 	public:
-		void dtor()
-		{
-			using func_t = decltype(&Object::dtor);
-			static REL::Relocation<func_t> func{ ID::BSScript::Object::dtor };
-			return func(this);
-		}
+		void dtor();
 
 		~Object()
 		{
-			// TODO: The destructor was inlined in version Starfield 1.15 and still needs to be
-			// pieced together or reimplemented
 			dtor();
 		}
 
@@ -66,7 +59,7 @@ namespace RE::BSScript
 		std::uint32_t                   unk1C;                     // 1C
 		BSTSmartPointer<ObjectTypeInfo> type;                      // 20
 		BSFixedString                   currentState;              // 28
-		void*                           lockStructure;             // 30
+		volatile void*                  lockStructure;             // 30
 		IObjectHandlePolicy*            handlePolicy;              // 38
 		std::size_t                     handle;                    // 40
 		volatile std::uint32_t          refCountAndHandleLock;     // 48
