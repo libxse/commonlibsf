@@ -2259,12 +2259,12 @@ namespace RE::ID
 
 	namespace TESFormDeleteEvent
 	{
-		inline constexpr REL::ID GetEventSource{ 0 };  // 107166
+		inline constexpr REL::ID GetEventSource{ 64137 };  // 107166
 	}
 
 	namespace TESFormIDRemapEvent
 	{
-		inline constexpr REL::ID GetEventSource{ 0 };  // 107167
+		inline constexpr REL::ID GetEventSource{ 64138 };  // 107167
 	}
 
 	namespace TESFurnitureEvent
