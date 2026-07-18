@@ -163,6 +163,17 @@ namespace RE::ID
 		inline constexpr REL::ID ctor{ 59786 };  // 101725
 	}
 
+	// Planet survey / PlayerKnowledge path (verified 1.16.236–1.16.244).
+	// Used by survey-completion mods (e.g. Complete Planet Survey); layouts live in callers until
+	// dedicated class headers land.
+	namespace BGSPlanet
+	{
+		inline constexpr REL::ID SetTraitKnown{ 52155 };         // mark trait known on planet
+		inline constexpr REL::ID ProgressUpdater{ 52157 };       // on-surface species/resource progress
+		inline constexpr REL::ID ScanLevelWriter{ 52173 };         // space / star-map scan-level write
+		inline constexpr REL::ID SurveyDiscriminator{ 938333 };  // global u16* for knowledge DB key disc
+	}
+
 	namespace BGSPlanet::PlayerKnowledgeFlagSetEvent
 	{
 		inline constexpr REL::ID GetEventSource{ 0 };  // 92501
@@ -236,6 +247,18 @@ namespace RE::ID
 	namespace BSChargenAPI::BIDataUtils::PresetNPCChangedEvent
 	{
 		inline constexpr REL::ID GetEventSource{ 0 };  // 141184
+	}
+
+	// Galaxy knowledge DB (verified 1.16.236–1.16.244). Knowledge DB pointer at manager+0x8B0.
+	namespace BSGalaxy::KnowledgeManager
+	{
+		inline constexpr REL::ID GetSingleton{ 126578 };
+	}
+
+	// BSTHashMap lookup used by the knowledge DB container (same signature as IDDB callers).
+	namespace BSComponentDB2
+	{
+		inline constexpr REL::ID Lookup{ 126806 };  // (container*, out[4], &key_u64)
 	}
 
 	namespace BSInputEnableLayer
@@ -403,6 +426,12 @@ namespace RE::ID
 		inline constexpr REL::ID Truncate{ 0 };        // 195959
 		inline constexpr REL::ID Write{ 0 };           // 75363
 		inline constexpr REL::ID operatorEqCopy{ 0 };  // 198448
+	}
+
+	// Engine BSTArray<u32> grow/push path used when building species marker arrays (slot+0x08).
+	namespace BSTArray
+	{
+		inline constexpr REL::ID U32PushGrow{ 35755 };
 	}
 
 	namespace BSTEventSource
@@ -1233,6 +1262,18 @@ namespace RE::ID
 		inline constexpr REL::ID PlayMenuSoundCtx{ 392439 };      // PTR_144af4430  0x4AF4430
 	}
 
+	// Character Data-menu "Miscellaneous Statistics" table (1.16.236–1.16.244).
+	// Entry stride 0x20; displayed/saved int32 value at entry+0x10; name key at entry+0x00.
+	namespace MiscStat
+	{
+		inline constexpr REL::ID EntryCount{ 889375 };             // u32*
+		inline constexpr REL::ID TableBase{ 889377 };              // uintptr_t*
+		inline constexpr REL::ID TrackingEnabled{ 894532 };        // u8*
+		inline constexpr REL::ID NameFloraFullyScanned{ 923219 };  // uintptr_t* interned name
+		inline constexpr REL::ID NameFaunaFullyScanned{ 923220 };
+		inline constexpr REL::ID NameUniqueCreatures{ 923223 };
+	}
+
 	namespace MissionBoard_MissionEntryChanged
 	{
 		inline constexpr REL::ID GetEventSource{ 0 };  // 139500
@@ -1514,6 +1555,14 @@ namespace RE::ID
 		inline constexpr REL::ID GetEventSource{ 0 };  // 107122
 	}
 
+	// PlayerKnowledge species-slot writers (per-planet subobj; 1.16.236–1.16.244).
+	namespace PlayerKnowledge
+	{
+		inline constexpr REL::ID IncrementScanFlag{ 124898 };  // scan-flag byte (+0x21)
+		inline constexpr REL::ID SetPercentByte{ 124899 };     // percent byte (+0x20)
+		inline constexpr REL::ID SpeciesSlotHash{ 124901 };    // FNV-1a key -> slot index
+	}
+
 	namespace PlayerCrosshairModeEvent
 	{
 		inline constexpr REL::ID GetEventSource{ 0 };  // 133336
@@ -1722,6 +1771,12 @@ namespace RE::ID
 	{
 		inline constexpr REL::ID GetConsoleCommands{ 896666 };
 		inline constexpr REL::ID GetScriptCommands{ 896669 };
+	}
+
+	// Species / scannable form helpers (1.16.236–1.16.244).
+	namespace Scannable
+	{
+		inline constexpr REL::ID ResolveCanonicalForm{ 83006 };  // form -> canonical form for outline key
 	}
 
 	namespace SecurityMenu_BackOutKey
@@ -2054,6 +2109,22 @@ namespace RE::ID
 		inline constexpr REL::ID GetEventSource{ 0 };  // 151932
 	}
 
+	// Survey check-and-dispatch / aggregator / ref-free complete (1.16.236–1.16.244).
+	namespace Survey
+	{
+		inline constexpr REL::ID CheckNotify{ 97853 };           // progress/complete notify (slate)
+		inline constexpr REL::ID Aggregator{ 1016657 };          // (buffer, planetId)
+		inline constexpr REL::ID AggregatorBufferFree{ 65318 };  // free aggregator buffer
+		inline constexpr REL::ID ScanCompletePlanet{ 102650 };   // ref-free discover/complete entry
+	}
+
+	// Star-map panel / scan handlers (1.16.236–1.16.244). UI menu name for the galaxy map: "GalaxyStarMapMenu".
+	namespace StarMap
+	{
+		inline constexpr REL::ID RefreshPanelData{ 93988 };  // (panel controller, planetId)
+		inline constexpr REL::ID ScanHandler{ 94011 };       // star-map scan handler (calls RefreshPanelData)
+	}
+
 	namespace StarMap::PlanetTraitKnownEvent
 	{
 		inline constexpr REL::ID GetEventSource{ 0 };  // 92502
@@ -2292,6 +2363,8 @@ namespace RE::ID
 		inline constexpr REL::ID DecRefCount{ 38742 };
 		inline constexpr REL::ID LookupByID{ 47401 };
 		inline constexpr REL::ID LookupByEditorID{ 47403 };
+		// Global BSTScatterTable holder (TESForm::LookupByID reads this); galaxy types like PNDT live here.
+		inline constexpr REL::ID AllFormsMap{ 883341 };
 	}
 
 	namespace TESFormDeleteEvent
