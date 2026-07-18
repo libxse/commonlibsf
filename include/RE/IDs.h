@@ -164,14 +164,19 @@ namespace RE::ID
 	}
 
 	// Planet survey / PlayerKnowledge path (verified 1.16.236–1.16.244).
-	// Used by survey-completion mods (e.g. Complete Planet Survey); layouts live in callers until
-	// dedicated class headers land.
 	namespace BGSPlanet
 	{
 		inline constexpr REL::ID SetTraitKnown{ 52155 };         // mark trait known on planet
 		inline constexpr REL::ID ProgressUpdater{ 52157 };       // on-surface species/resource progress
-		inline constexpr REL::ID ScanLevelWriter{ 52173 };         // space / star-map scan-level write
+		inline constexpr REL::ID ScanLevelWriter{ 52173 };       // space / star-map scan-level write
 		inline constexpr REL::ID SurveyDiscriminator{ 938333 };  // global u16* for knowledge DB key disc
+	}
+
+	namespace BGSPlanet::Manager
+	{
+		inline constexpr REL::ID Singleton{ 937609 };
+		inline constexpr REL::ID SetCurrentPlanet{ 51735 };      // void(Manager*, uint32_t planetFormId) — writes +0x80
+		inline constexpr REL::ID ResolvePlanetFromRef{ 52188 };  // resolves planet domain id from a REFR
 	}
 
 	namespace BGSPlanet::PlayerKnowledgeFlagSetEvent
@@ -255,10 +260,22 @@ namespace RE::ID
 		inline constexpr REL::ID GetSingleton{ 126578 };
 	}
 
-	// BSTHashMap lookup used by the knowledge DB container (same signature as IDDB callers).
+	// PlayerKnowledge domain discriminator (same global as BGSPlanet::SurveyDiscriminator).
+	namespace BSGalaxy::PlayerKnowledge
+	{
+		inline constexpr REL::ID DiscriminatorId{ 938333 };  // u16* domain id for component keys
+		inline constexpr REL::ID HashSpeciesSlot{ 124901 };
+		inline constexpr REL::ID SetScanFlag{ 124898 };
+		inline constexpr REL::ID SetScanPercent{ 124899 };
+		inline constexpr REL::ID MarkTraitKnown{ 52155 };
+	}
+
+	// BSTHashMap / component-DB helpers used by the knowledge DB (1.16.236–1.16.244).
 	namespace BSComponentDB2
 	{
-		inline constexpr REL::ID Lookup{ 126806 };  // (container*, out[4], &key_u64)
+		inline constexpr REL::ID Lookup{ 126806 };         // (container*, out[4], &key_u64)
+		inline constexpr REL::ID IterateBegin{ 126805 };   // scatter-table iterate begin
+		inline constexpr REL::ID IterateAdvance{ 39372 };  // scatter-table iterate advance
 	}
 
 	namespace BSInputEnableLayer
@@ -1777,6 +1794,16 @@ namespace RE::ID
 	namespace Scannable
 	{
 		inline constexpr REL::ID ResolveCanonicalForm{ 83006 };  // form -> canonical form for outline key
+	}
+
+	// Ref-scoped runtime ScannableComponent (distinct from authored BGSScannableFormComponent).
+	// Transient scanned byte; empty save serializer; reset on materialize.
+	namespace ScannableComponent
+	{
+		inline constexpr REL::ID DiscriminatorId{ 939118 };  // u16* for component DB keys
+		inline constexpr REL::ID GetOutlineState{ 83007 };   // char: 0=none, 1=unscanned, 2=scanned
+		inline constexpr REL::ID SetScanned{ 83008 };        // (REFR*, flag, catByte, pad)
+		inline constexpr REL::ID GetCanonicalId{ 83009 };    // component+0x24 or fallback
 	}
 
 	namespace SecurityMenu_BackOutKey
