@@ -268,6 +268,21 @@ namespace SFSE
 			kVersion = 1
 		};
 
+		enum
+		{
+			kAddressIndependence_Signatures = 1 << 0,
+			kAddressIndependence_AddressLibrary = 1 << 1,
+			kAddressIndependence_AddressLibraryV2 = 1 << 2,
+		};
+
+		enum
+		{
+			kStructureIndependence_NoStructs = 1 << 0,
+			kStructureIndependence_InitialLayout = 1 << 1,
+			kStructureIndependence_1_8_86_Layout = 1 << 2,
+			kStructureIndependence_1_14_70_Layout = 1 << 3,
+		};
+
 		constexpr void PluginVersion(const REL::Version a_version) noexcept { pluginVersion = a_version.pack(); }
 
 		[[nodiscard]] constexpr REL::Version GetPluginVersion() const noexcept { return REL::Version::unpack(pluginVersion); }
@@ -280,15 +295,13 @@ namespace SFSE
 
 		[[nodiscard]] constexpr std::string_view GetAuthorName() const noexcept { return std::string_view{ author }; }
 
-		constexpr void UsesSigScanning(const bool a_value) noexcept { SetOrClearBit(addressIndependence, 1 << 0, a_value); }
+		constexpr void UsesSigScanning(const bool a_value) noexcept { SetOrClearBit(addressIndependence, kAddressIndependence_Signatures, a_value); }
 
-		// 1 << 2 is for Address Library v2
-		constexpr void UsesAddressLibrary(const bool a_value) noexcept { SetOrClearBit(addressIndependence, 1 << 2, a_value); }
+		constexpr void UsesAddressLibrary(const bool a_value) noexcept { SetOrClearBit(addressIndependence, kAddressIndependence_AddressLibraryV2, a_value); }
 
-		constexpr void HasNoStructUse(const bool a_value) noexcept { SetOrClearBit(structureCompatibility, 1 << 0, a_value); }
+		constexpr void HasNoStructUse(const bool a_value) noexcept { SetOrClearBit(structureCompatibility, kStructureIndependence_NoStructs, a_value); }
 
-		// 1 << 3 is for runtime 1.14.70 and later
-		constexpr void IsLayoutDependent(const bool a_value) noexcept { SetOrClearBit(structureCompatibility, 1 << 3, a_value); }
+		constexpr void IsLayoutDependent(const bool a_value) noexcept { SetOrClearBit(structureCompatibility, kStructureIndependence_1_14_70_Layout, a_value); }
 
 		constexpr void CompatibleVersions(std::initializer_list<REL::Version> a_versions) noexcept
 		{
