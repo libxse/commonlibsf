@@ -173,10 +173,11 @@ namespace RE
 	struct ScriptVariable
 	{
 		// members
-		SCRIPT_LOCAL    data;  // 00
-		BSStringT<char> name;  // 10
+		SCRIPT_LOCAL data;  // 00
+		BSString     name;  // 0C
 	};
-	static_assert(sizeof(ScriptVariable) == 0x20);
+	static_assert(offsetof(ScriptVariable, name) == 0x0C);
+	static_assert(sizeof(ScriptVariable) == 0x1C);
 
 	class Script
 	{

@@ -430,6 +430,11 @@ namespace RE::ID
 		inline constexpr REL::ID Unlock{ 35630 };
 	}
 
+	namespace BSStringT
+	{
+		inline constexpr REL::ID Assign{ 36345 };
+	}
+
 	namespace BSStringPool
 	{
 		namespace Entry
@@ -812,7 +817,6 @@ namespace RE::ID
 	{
 		inline constexpr REL::ID FormatMappingRow{ 124100 };
 		inline constexpr REL::ID FormatMappingRowWithKeyCodes{ 124101 };
-		inline constexpr REL::ID MappingRowStringDtor{ 35706 };
 		inline constexpr REL::ID Singleton{ 938003 };
 		inline constexpr REL::ID InputContextNameTable{ 360965 };
 		inline constexpr REL::ID LoadMappings{ 124116 };

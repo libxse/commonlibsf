@@ -15,11 +15,11 @@ namespace RE
 
 	class BGSPackIn :
 		public TESBoundObject,        // 000
-		public BGSKeywordForm,        // 0E0
-		public BGSPropertySheet,      // 110
-		public BGSPreviewTransform,   // 120
-		public BGSForcedLocRefType,   // 168
-		public BGSNativeTerminalForm  // 180
+		public BGSKeywordForm,        // 0E8
+		public BGSPropertySheet,      // 118
+		public BGSPreviewTransform,   // 128
+		public BGSForcedLocRefType,   // 170
+		public BGSNativeTerminalForm  // 188
 	{
 	public:
 		SF_RTTI_VTABLE(BGSPackIn);
@@ -28,11 +28,12 @@ namespace RE
 		~BGSPackIn() override;  // 00
 
 		// members
-		TESObjectCELL*                    cell;           // 190
-		std::uint32_t                     flags;          // 198
-		BSStringT<char>                   filter;         // 19C
-		BSTArray<BGSLayeredMaterialSwap*> materialSwaps;  // 1B0
-		std::uint32_t                     unk1C0;         // 1C0
+		TESObjectCELL*                    cell;           // 198
+		std::uint32_t                     flags;          // 1A0
+		BSString                          filter;         // 1A4
+		BSTArray<BGSLayeredMaterialSwap*> materialSwaps;  // 1B8
+		std::uint32_t                     unk1C0;         // 1C8
 	};
+	static_assert(offsetof(BGSPackIn, filter) == 0x1A4);
 	static_assert(sizeof(BGSPackIn) == 0x1D0);
 }
