@@ -1346,6 +1346,12 @@ namespace RE::ID
 		inline constexpr REL::ID GetEventSource{ 0 };  // 167118
 	}
 
+	namespace MessageMenuManager
+	{
+		inline constexpr REL::ID Singleton{ 938019 };
+		inline constexpr REL::ID CreateMessageBox{ 114231 };
+	}
+
 	namespace Misc
 	{
 		inline constexpr REL::ID DebugNotification{ 0 };          // 138728
