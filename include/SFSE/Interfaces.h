@@ -53,6 +53,23 @@ namespace SFSE
 			void (*Register)(void*);
 		};
 
+		struct SFSESerializationInterface
+		{
+			std::uint32_t version;
+			void (*SetUniqueID)(PluginHandle, std::uint32_t);
+			void (*SetRevertCallback)(PluginHandle, void*);
+			void (*SetSaveCallback)(PluginHandle, void*);
+			void (*SetLoadCallback)(PluginHandle, void*);
+			void (*SetFormDeleteCallback)(PluginHandle, void*);
+			bool (*WriteRecord)(std::uint32_t, std::uint32_t, const void*, std::uint32_t);
+			bool (*OpenRecord)(std::uint32_t, std::uint32_t);
+			bool (*WriteRecordData)(const void*, std::uint32_t);
+			bool (*GetNextRecordInfo)(std::uint32_t*, std::uint32_t*, std::uint32_t*);
+			std::uint32_t (*ReadRecordData)(void*, std::uint32_t);
+			bool (*ResolveHandle)(std::uint64_t, std::uint64_t*);
+			bool (*ResolveFormID)(std::uint32_t, std::uint32_t*);
+		};
+
 		struct SFSETaskInterface
 		{
 			std::uint32_t interfaceVersion;
@@ -121,6 +138,7 @@ namespace SFSE
 			kTrampoline,
 			kMenu,
 			kTask,
+			kSerialization,
 
 			kTotal
 		};
@@ -213,6 +231,92 @@ namespace SFSE
 
 		[[nodiscard]] std::uint32_t Version() const noexcept { return GetProxy().interfaceVersion; }
 		void                        Register(RegCallback* a_callback) const;
+	};
+
+	class SerializationInterface
+	{
+	private:
+		[[nodiscard]] decltype(auto) GetProxy() const noexcept
+		{
+			return reinterpret_cast<const Impl::SFSESerializationInterface&>(*this);
+		}
+
+	public:
+		enum Version : std::uint32_t
+		{
+			kVersion = 1
+		};
+
+		using EventCallback = std::add_pointer_t<void(const SerializationInterface* a_intfc)>;
+		using FormDeleteCallback = std::add_pointer_t<void(std::uint64_t a_handle)>;
+
+		[[nodiscard]] std::uint32_t Version() const noexcept { return GetProxy().version; }
+
+		void SetUniqueID(std::uint32_t a_uid) const;
+		void SetRevertCallback(EventCallback a_callback) const;
+		void SetSaveCallback(EventCallback a_callback) const;
+		void SetLoadCallback(EventCallback a_callback) const;
+		void SetFormDeleteCallback(FormDeleteCallback a_callback) const;
+
+		bool WriteRecord(std::uint32_t a_type, std::uint32_t a_version, const void* a_buf, std::uint32_t a_length) const;
+		bool OpenRecord(std::uint32_t a_type, std::uint32_t a_version) const;
+		bool WriteRecordData(const void* a_buf, std::uint32_t a_length) const;
+
+		template <class T>
+			requires(std::negation_v<std::is_pointer<T>>)
+		bool WriteRecordData(const T& a_buf) const
+		{
+			return WriteRecordData(std::addressof(a_buf), sizeof(T));
+		}
+
+		template <class T, std::size_t N>
+		bool WriteRecordData(const T (&a_buf)[N]) const
+		{
+			return WriteRecordData(std::addressof(a_buf), sizeof(T) * N);
+		}
+
+		bool          GetNextRecordInfo(std::uint32_t& a_type, std::uint32_t& a_version, std::uint32_t& a_length) const;
+		std::uint32_t ReadRecordData(void* a_buf, std::uint32_t a_length) const;
+
+		template <class T>
+			requires(std::negation_v<std::is_pointer<T>>)
+		std::uint32_t ReadRecordData(T& a_buf) const
+		{
+			return ReadRecordData(std::addressof(a_buf), sizeof(T));
+		}
+
+		template <class T>
+			requires(std::negation_v<std::is_pointer<T>>)
+		std::uint32_t ReadRecordDataEx(std::uint32_t& a_length, T& a_buf) const
+		{
+			a_length -= sizeof(T);
+			return ReadRecordData(std::addressof(a_buf), sizeof(T));
+		}
+
+		template <class T, std::size_t N>
+		std::uint32_t ReadRecordData(T (&a_buf)[N]) const
+		{
+			return ReadRecordData(std::addressof(a_buf), sizeof(T) * N);
+		}
+
+		template <class T, std::size_t N>
+		std::uint32_t ReadRecordDataEx(std::uint32_t& a_length, T (&a_buf)[N]) const
+		{
+			a_length -= sizeof(T) * N;
+			return ReadRecordData(std::addressof(a_buf), sizeof(T) * N);
+		}
+
+		[[nodiscard]] std::optional<std::uint64_t> ResolveHandle(std::uint64_t a_handle) const
+		{
+			std::uint64_t result{ 0 };
+			return GetProxy().ResolveHandle(a_handle, std::addressof(result)) ? std::optional{ result } : std::nullopt;
+		}
+
+		[[nodiscard]] std::optional<std::uint32_t> ResolveFormID(std::uint32_t a_formID) const
+		{
+			std::uint32_t result{ 0 };
+			return GetProxy().ResolveFormID(a_formID, std::addressof(result)) ? std::optional{ result } : std::nullopt;
+		}
 	};
 
 	class ITaskDelegate

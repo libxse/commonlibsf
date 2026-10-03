@@ -41,10 +41,11 @@ namespace SFSE
 	[[nodiscard]] const PluginInfo* GetPluginInfo(std::string_view a_plugin) noexcept;
 	[[nodiscard]] std::uint32_t     GetSFSEVersion() noexcept;
 
-	[[nodiscard]] const TrampolineInterface* GetTrampolineInterface() noexcept;
-	[[nodiscard]] const MessagingInterface*  GetMessagingInterface() noexcept;
-	[[nodiscard]] const MenuInterface*       GetMenuInterface() noexcept;
-	[[nodiscard]] const TaskInterface*       GetTaskInterface() noexcept;
+	[[nodiscard]] const TrampolineInterface*    GetTrampolineInterface() noexcept;
+	[[nodiscard]] const MessagingInterface*     GetMessagingInterface() noexcept;
+	[[nodiscard]] const MenuInterface*          GetMenuInterface() noexcept;
+	[[nodiscard]] const TaskInterface*          GetTaskInterface() noexcept;
+	[[nodiscard]] const SerializationInterface* GetSerializationInterface() noexcept;
 }
 
 namespace SFSE

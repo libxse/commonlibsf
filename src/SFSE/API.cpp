@@ -31,10 +31,11 @@ namespace SFSE
 			PluginHandle                            pluginHandle{ static_cast<PluginHandle>(-1) };
 			std::function<const void*(const char*)> pluginInfoAccessor;
 
-			TrampolineInterface* trampolineInterface{ nullptr };
-			MessagingInterface*  messagingInterface{ nullptr };
-			MenuInterface*       menuInterface{ nullptr };
-			TaskInterface*       taskInterface{ nullptr };
+			TrampolineInterface*    trampolineInterface{ nullptr };
+			MessagingInterface*     messagingInterface{ nullptr };
+			MenuInterface*          menuInterface{ nullptr };
+			TaskInterface*          taskInterface{ nullptr };
+			SerializationInterface* serializationInterface{ nullptr };
 
 			std::mutex                         apiLock;
 			std::vector<std::function<void()>> apiInitRegs;
@@ -158,6 +159,7 @@ namespace SFSE
 			api->trampolineInterface = a_intfc->QueryInterface<TrampolineInterface>(LoadInterface::kTrampoline);
 			api->menuInterface = a_intfc->QueryInterface<MenuInterface>(LoadInterface::kMenu);
 			api->taskInterface = a_intfc->QueryInterface<TaskInterface>(LoadInterface::kTask);
+			api->serializationInterface = a_intfc->QueryInterface<SerializationInterface>(LoadInterface::kSerialization);
 
 			const std::scoped_lock lock{ api->apiLock };
 			if (!api->apiInit) {
@@ -242,6 +244,11 @@ namespace SFSE
 	const TaskInterface* GetTaskInterface() noexcept
 	{
 		return Impl::API::GetSingleton()->taskInterface;
+	}
+
+	const SerializationInterface* GetSerializationInterface() noexcept
+	{
+		return Impl::API::GetSingleton()->serializationInterface;
 	}
 }
 
