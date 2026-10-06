@@ -42,12 +42,18 @@ namespace RE
 		static_assert(sizeof(Teaches) == 0x8);
 
 		// members
-		REX::TEnumSet<Flag, std::uint8_t> flags;        // 00
+		std::uint32_t                     unk00;        // 00
+		std::uint32_t                     pad04;        // 04
 		Teaches                           teaches;      // 08
 		std::uint32_t                     textOffsetX;  // 10
 		std::uint32_t                     textOffsetY;  // 14
-		std::uint64_t                     unk18;        // 18
+		REX::TEnumSet<Flag, std::uint8_t> flags;        // 18
+		std::uint8_t                      unk19;        // 19
+		std::uint16_t                     pad1A;        // 1A
+		std::uint32_t                     pad1C;        // 1C
 	};
+	static_assert(offsetof(OBJ_BOOK, teaches) == 0x08);
+	static_assert(offsetof(OBJ_BOOK, flags) == 0x18);
 	static_assert(sizeof(OBJ_BOOK) == 0x20);
 
 	class TESObjectBOOK :
