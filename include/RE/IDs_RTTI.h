@@ -5665,7 +5665,7 @@ namespace RE
 		inline constexpr REL::ID BSComponentDB2__Detail__CreateAndDeleteCommand__lambda_a5c17da87a28e8337eb6dbdfc39eb263__BSComponentDB2__ID_floatconst_{ 843989 };
 		inline constexpr REL::ID BSComponentDB2__Detail__CreateAndDeleteCommand__lambda_a691f8334f5282ed3f09f76f388767f1__{ 1185461 };
 		inline constexpr REL::ID BSComponentDB2__Detail__CreateAndDeleteCommand__lambda_a6db6e8ce2a1b5900590f5d36705dada__BSComponentDB2__Detail__EdgeKeyconst_BSResource2__DBHandle_BSResource2__TEntryTraits_0_TempLoadedCellDB__DBTraits_BSResource2__DBDefaultStreamPolicy___unsignedintconst_{ 849341 };
-		inline constexpr REL::ID BSComponentDB2__Detail__CreateAndDeleteCommand__lambda_a7b1df7bf2d1b6a190f0a65de15595dd__BGSSaveLoadFileconst_char__[260]_{ 859401 };
+		inline constexpr REL::ID BSComponentDB2__Detail__CreateAndDeleteCommand__lambda_a7b1df7bf2d1b6a190f0a65de15595dd__BGSSaveLoadFileconst_char__[260] _{ 859401 };
 		inline constexpr REL::ID BSComponentDB2__Detail__CreateAndDeleteCommand__lambda_a90056ac78118b4f962495d8ad4dff6a__BSMaterial__TaggedID_BSMaterial__Tag__LayeredMaterialTag_const_BSMaterial__LevelOfDetailSettingsconst_unsignedshort_{ 868802 };
 		inline constexpr REL::ID BSComponentDB2__Detail__CreateAndDeleteCommand__lambda_a9b074fbf6ecab7777043b15e2adb86a__BGSPlanet__PlanetData_unsignedintvolatile_{ 846743 };
 		inline constexpr REL::ID BSComponentDB2__Detail__CreateAndDeleteCommand__lambda_a9ba8d35507820d87d57fd5f5da57326__BSMaterial__TaggedID_BSMaterial__Tag__MaterialTag_const_BSMaterial__TaggedID_BSMaterial__Tag__TextureSetTag_const_unsignedshort_{ 869040 };
@@ -10752,7 +10752,7 @@ namespace RE
 		inline constexpr REL::ID BSService__TCommandBase_BSComponentDB2__Detail__CreateAndDeleteCommand__lambda_a5c17da87a28e8337eb6dbdfc39eb263__BSComponentDB2__ID_floatconst__{ 843990 };
 		inline constexpr REL::ID BSService__TCommandBase_BSComponentDB2__Detail__CreateAndDeleteCommand__lambda_a691f8334f5282ed3f09f76f388767f1___{ 1185462 };
 		inline constexpr REL::ID BSService__TCommandBase_BSComponentDB2__Detail__CreateAndDeleteCommand__lambda_a6db6e8ce2a1b5900590f5d36705dada__BSComponentDB2__Detail__EdgeKeyconst_BSResource2__DBHandle_BSResource2__TEntryTraits_0_TempLoadedCellDB__DBTraits_BSResource2__DBDefaultStreamPolicy___unsignedintconst__{ 849337 };
-		inline constexpr REL::ID BSService__TCommandBase_BSComponentDB2__Detail__CreateAndDeleteCommand__lambda_a7b1df7bf2d1b6a190f0a65de15595dd__BGSSaveLoadFileconst_char__[260]__{ 859400 };
+		inline constexpr REL::ID BSService__TCommandBase_BSComponentDB2__Detail__CreateAndDeleteCommand__lambda_a7b1df7bf2d1b6a190f0a65de15595dd__BGSSaveLoadFileconst_char__[260] __{ 859400 };
 		inline constexpr REL::ID BSService__TCommandBase_BSComponentDB2__Detail__CreateAndDeleteCommand__lambda_a90056ac78118b4f962495d8ad4dff6a__BSMaterial__TaggedID_BSMaterial__Tag__LayeredMaterialTag_const_BSMaterial__LevelOfDetailSettingsconst_unsignedshort__{ 868723 };
 		inline constexpr REL::ID BSService__TCommandBase_BSComponentDB2__Detail__CreateAndDeleteCommand__lambda_a9b074fbf6ecab7777043b15e2adb86a__BGSPlanet__PlanetData_unsignedintvolatile__{ 846744 };
 		inline constexpr REL::ID BSService__TCommandBase_BSComponentDB2__Detail__CreateAndDeleteCommand__lambda_a9ba8d35507820d87d57fd5f5da57326__BSMaterial__TaggedID_BSMaterial__Tag__MaterialTag_const_BSMaterial__TaggedID_BSMaterial__Tag__TextureSetTag_const_unsignedshort__{ 869042 };
@@ -31736,7 +31736,7 @@ namespace RE
 		inline constexpr REL::ID std___Ref_count_resource_Workshop__TransferLinkWorkshopItem_stl__detail__AlignedDelete_Workshop__TransferLinkWorkshopItem__{ 866702 };
 		inline constexpr REL::ID std___Ref_count_resource_unsignedchar__lambda_dc2c6e289b47090a5dc26099a3758499__{ 1140492 };
 		inline constexpr REL::ID std___Ref_count_resource_unsignedchar__lambda_fc093b5b8ce222cb1017e6bfd91f7846__{ 1140406 };
-		inline constexpr REL::ID std___Ref_count_resource_unsignedchar_std__default_delete_unsignedchar[0]__{ 872964 };
+		inline constexpr REL::ID std___Ref_count_resource_unsignedchar_std__default_delete_unsignedchar[0] __{ 872964 };
 		inline constexpr REL::ID std___Root_node{ 843529 };
 		inline constexpr REL::ID std__bad_alloc{ 840381 };
 		inline constexpr REL::ID std__bad_array_new_length{ 840383 };
@@ -31769,7 +31769,7 @@ namespace RE
 		inline constexpr REL::ID std__default_delete_BSChargenAPI__RestorePoint_{ 1268915 };
 		inline constexpr REL::ID std__default_delete_BSTHashMap_BSSimpleTaggedType_BGSTerrain__Tag__FileIDTag_unsigned__int64_0__NiPoint2_BSTDefaultScatterTable__{ 840685 };
 		inline constexpr REL::ID std__default_delete_BSTHashMap_BSSimpleTaggedType_BGSTerrain__Tag__FileIDTag_unsigned__int64_0__float_BSTDefaultScatterTable__{ 840673 };
-		inline constexpr REL::ID std__default_delete_unsignedchar[0]_{ 841368 };
+		inline constexpr REL::ID std__default_delete_unsignedchar[0] _{ 841368 };
 		inline constexpr REL::ID std__enable_shared_from_this_BGSBaseLODBlock_{ 844152 };
 		inline constexpr REL::ID std__exception{ 840382 };
 		inline constexpr REL::ID std__greater_float_{ 840844 };
