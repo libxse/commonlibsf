@@ -4913,7 +4913,7 @@ namespace RE
 		inline constexpr std::array<REL::ID, 1>   BSComponentDB2__Detail__CreateAndDeleteCommand__lambda_a5c17da87a28e8337eb6dbdfc39eb263__BSComponentDB2__ID_floatconst_{ REL::ID(394960) };
 		inline constexpr std::array<REL::ID, 1>   BSComponentDB2__Detail__CreateAndDeleteCommand__lambda_a691f8334f5282ed3f09f76f388767f1__{ REL::ID(473808) };
 		inline constexpr std::array<REL::ID, 1>   BSComponentDB2__Detail__CreateAndDeleteCommand__lambda_a6db6e8ce2a1b5900590f5d36705dada__BSComponentDB2__Detail__EdgeKeyconst_BSResource2__DBHandle_BSResource2__TEntryTraits_0_TempLoadedCellDB__DBTraits_BSResource2__DBDefaultStreamPolicy___unsignedintconst_{ REL::ID(413087) };
-		inline constexpr std::array<REL::ID, 1>   BSComponentDB2__Detail__CreateAndDeleteCommand__lambda_a7b1df7bf2d1b6a190f0a65de15595dd__BGSSaveLoadFileconst_char__[260] _{ REL::ID(449745) };
+		inline constexpr std::array<REL::ID, 1>   BSComponentDB2__Detail__CreateAndDeleteCommand__lambda_a7b1df7bf2d1b6a190f0a65de15595dd__BGSSaveLoadFileconst_char___260__{ REL::ID(449745) };
 		inline constexpr std::array<REL::ID, 1>   BSComponentDB2__Detail__CreateAndDeleteCommand__lambda_a90056ac78118b4f962495d8ad4dff6a__BSMaterial__TaggedID_BSMaterial__Tag__LayeredMaterialTag_const_BSMaterial__LevelOfDetailSettingsconst_unsignedshort_{ REL::ID(473995) };
 		inline constexpr std::array<REL::ID, 1>   BSComponentDB2__Detail__CreateAndDeleteCommand__lambda_a9b074fbf6ecab7777043b15e2adb86a__BGSPlanet__PlanetData_unsignedintvolatile_{ REL::ID(402670) };
 		inline constexpr std::array<REL::ID, 1>   BSComponentDB2__Detail__CreateAndDeleteCommand__lambda_a9ba8d35507820d87d57fd5f5da57326__BSMaterial__TaggedID_BSMaterial__Tag__MaterialTag_const_BSMaterial__TaggedID_BSMaterial__Tag__TextureSetTag_const_unsignedshort_{ REL::ID(475313) };
@@ -21097,7 +21097,7 @@ namespace RE
 		inline constexpr std::array<REL::ID, 1>   std___Ref_count_resource_Workshop__TransferLinkWorkshopItem_stl__detail__AlignedDelete_Workshop__TransferLinkWorkshopItem__{ REL::ID(467280) };
 		inline constexpr std::array<REL::ID, 1>   std___Ref_count_resource_unsignedchar__lambda_dc2c6e289b47090a5dc26099a3758499__{ REL::ID(499524) };
 		inline constexpr std::array<REL::ID, 1>   std___Ref_count_resource_unsignedchar__lambda_fc093b5b8ce222cb1017e6bfd91f7846__{ REL::ID(499090) };
-		inline constexpr std::array<REL::ID, 1>   std___Ref_count_resource_unsignedchar_std__default_delete_unsignedchar[0] __{ REL::ID(485089) };
+		inline constexpr std::array<REL::ID, 1>   std___Ref_count_resource_unsignedchar_std__default_delete_unsignedchar_0___{ REL::ID(485089) };
 		inline constexpr std::array<REL::ID, 1>   std___Root_node{ REL::ID(393604) };
 		inline constexpr std::array<REL::ID, 1>   std__bad_alloc{ REL::ID(303579) };
 		inline constexpr std::array<REL::ID, 1>   std__bad_array_new_length{ REL::ID(303581) };
