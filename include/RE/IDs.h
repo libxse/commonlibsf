@@ -143,7 +143,7 @@ namespace RE::ID
 
 	namespace BGSEditorID
 	{
-		inline constexpr REL::ID Register{ 0 };  // 86172
+		inline constexpr REL::ID Register{ 47386 };  // 86172
 	}
 
 	namespace BGSEntryPoint
@@ -1004,7 +1004,7 @@ namespace RE::ID
 
 	namespace ExtraDataList
 	{
-		inline constexpr REL::ID HasQuestObjectAlias{ 0 };  // 83336
+		inline constexpr REL::ID HasQuestObjectAlias{ 45044 };  // 83336
 	}
 
 	namespace FavoritesMenu_AssignQuickkey
@@ -2563,7 +2563,7 @@ namespace RE::ID
 		inline constexpr REL::ID GetSpaceship{ 119881 };
 		inline constexpr REL::ID GetSpaceshipParentDock{ 0 };  // 174134
 		inline constexpr REL::ID GetSpaceshipPilot{ 119876 };
-		inline constexpr REL::ID GetValue{ 0 };  // 107605
+		inline constexpr REL::ID GetValue{ 64271 };  // 107605
 		inline constexpr REL::ID HasKeyword{ 42794 };
 		inline constexpr REL::ID IsCrimeToActivate{ 0 };  // 106755
 		inline constexpr REL::ID IsInSpace{ 63482 };
