@@ -2567,7 +2567,6 @@ namespace RE::ID
 		inline constexpr REL::ID HasKeyword{ 42794 };
 		inline constexpr REL::ID IsCrimeToActivate{ 0 };  // 106755
 		inline constexpr REL::ID IsInSpace{ 63482 };
-		inline constexpr REL::ID IsInSpaceship{ 119881 };
 		inline constexpr REL::ID IsObjectEquipped{ 0 };  // 106991
 		inline constexpr REL::ID IsSpaceshipDocked{ 120230 };
 		inline constexpr REL::ID IsSpaceshipLanded{ 119909 };
