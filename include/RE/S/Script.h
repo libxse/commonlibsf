@@ -74,17 +74,16 @@ namespace RE
 		std::uint32_t       pad24;                // 24
 		SCRIPT_PARAMETER*   params;               // 28
 		ExecuteFunction_t   executeFunction;      // 30
-		void*               compileFunction;      // 38
-		ConditionFunction_t conditionFunction;    // 40
-		std::uint8_t        editorFilter;         // 48
-		std::uint8_t        invalidatesCellList;  // 49
-		std::uint8_t        unk4A;                // 4A
-		std::uint8_t        unk4B;                // 4B
-		std::uint8_t        unk4C;                // 4C
-		std::uint8_t        unk4E;                // 4D
-		std::uint8_t        unk4F;                // 4F
-		std::uint8_t        unk50;                // 50
-		std::uint8_t        unk51;                // 51
+		std::uint8_t        unk38;                // 38
+		std::uint8_t        pad39;                // 39
+		std::uint16_t       pad3A;                // 3A
+		std::uint32_t       pad3C;                // 3C
+		void*               compileFunction;      // 40
+		ConditionFunction_t conditionFunction;    // 48
+		std::uint8_t        editorFilter;         // 50
+		std::uint8_t        invalidatesCellList;  // 51
+		std::uint16_t       pad52;                // 52
+		std::uint32_t       pad54;                // 54
 	};
 	static_assert(sizeof(SCRIPT_FUNCTION) == 0x58);
 
