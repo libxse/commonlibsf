@@ -1,0 +1,23 @@
+/[Bb]uild
+CMakeUserPresets.json
+CMakeFiles
+CMakeCache.txt
+/.vs*
+/.vscode*
+/.idea
+/.xmake
+conan.lock
+conanbuildinfo.*
+conaninfo.txt
+graph_info.json
+
+/out*
+/CommonLibSF/.vs
+/CommonLibSF/out
+/vsxmake*
+
+.idea
+*ReSharper*
+
+# Local message-box validation harness
+/tests/message_box/
