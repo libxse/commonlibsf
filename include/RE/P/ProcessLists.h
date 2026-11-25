@@ -42,31 +42,35 @@ namespace RE
 		}
 
 		// members
-		std::byte                        pad018[0x8];                   // 018
-		std::int32_t                     numberHighActors;              // 020
-		std::int32_t                     numberFullyEnabledHighActors;  // 024
-		std::byte                        pad028[0x1C];                  // 028
-		bool                             runDetection;                  // 044
-		std::byte                        unk045;                        // 045
-		bool                             processHigh;                   // 046
-		bool                             processLow;                    // 047
-		bool                             processMiddleHigh;             // 048
-		bool                             processMiddleLow;              // 049
-		bool                             processSchedules;              // 04A
-		bool                             showSubtitles;                 // 04B
-		std::byte                        pad04C[0x6];                   // 04C
-		BSTArray<BSPointerHandle<Actor>> highActorHandles;              // 058
-		BSTArray<BSPointerHandle<Actor>> lowActorHandles;               // 068
-		BSTArray<BSPointerHandle<Actor>> middleHighActorHandles;        // 078
-		BSTArray<BSPointerHandle<Actor>> middleLowActorHandles;         // 088
-		std::byte                        pad098[0x154];                 // 098
-		bool                             runSchedules;                  // 1EC
-		bool                             runMovement;                   // 1ED
-		bool                             runAnimations;                 // 1EE
+		std::byte                        pad018[0x10];                  // 018
+		std::int32_t                     numberHighActors;              // 028
+		std::int32_t                     numberFullyEnabledHighActors;  // 02C
+		std::byte                        pad030[0x1C];                  // 030
+		bool                             runDetection;                  // 04C
+		std::byte                        unk04D;                        // 04D
+		bool                             processHigh;                   // 04E
+		bool                             processLow;                    // 04F
+		bool                             processMiddleHigh;             // 050
+		bool                             processMiddleLow;              // 051
+		bool                             processSchedules;              // 052
+		bool                             showSubtitles;                 // 053
+		std::byte                        pad054[0xC];                   // 054
+		BSTArray<BSPointerHandle<Actor>> highActorHandles;              // 060
+		BSTArray<BSPointerHandle<Actor>> lowActorHandles;               // 070
+		BSTArray<BSPointerHandle<Actor>> middleHighActorHandles;        // 080
+		BSTArray<BSPointerHandle<Actor>> middleLowActorHandles;         // 090
+		std::byte                        pad0A0[0x154];                 // 0A0
+		bool                             runSchedules;                  // 1F4
+		bool                             runMovement;                   // 1F5
+		bool                             runAnimations;                 // 1F6
 	};
-	static_assert(offsetof(ProcessLists, numberHighActors) == 0x20);
-	static_assert(offsetof(ProcessLists, runDetection) == 0x44);
-	static_assert(offsetof(ProcessLists, showSubtitles) == 0x4B);
-	static_assert(offsetof(ProcessLists, highActorHandles) == 0x58);
-	static_assert(offsetof(ProcessLists, runSchedules) == 0x1EC);
+	static_assert(offsetof(ProcessLists, numberHighActors) == 0x28);
+	static_assert(offsetof(ProcessLists, numberFullyEnabledHighActors) == 0x2C);
+	static_assert(offsetof(ProcessLists, runDetection) == 0x4C);
+	static_assert(offsetof(ProcessLists, showSubtitles) == 0x53);
+	static_assert(offsetof(ProcessLists, highActorHandles) == 0x60);
+	static_assert(offsetof(ProcessLists, lowActorHandles) == 0x70);
+	static_assert(offsetof(ProcessLists, middleHighActorHandles) == 0x80);
+	static_assert(offsetof(ProcessLists, middleLowActorHandles) == 0x90);
+	static_assert(offsetof(ProcessLists, runSchedules) == 0x1F4);
 }
